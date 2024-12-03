@@ -131,8 +131,8 @@
 
 ---
 
-## Shell Scripting Exercises
-1. **Factorial of a number using a `for` loop:**
+## Exercise 6: Shell Scripting Exercises
+1. **Factorial Script:**
     ```bash
     #!/bin/bash
     read -p "Enter a number: " num
@@ -143,24 +143,67 @@
     echo "Factorial of $num is $fact"
     ```
 
-2. **Multiplication table for a number:**
+2. **Multiplication Table:**
     ```bash
     #!/bin/bash
     read -p "Enter a number: " num
-    for i in {1..10}; do
+    for ((i=1; i<=10; i++)); do
       echo "$num * $i = $((num * i))"
     done
     ```
 
-3. **Reverse a number using a `while` loop:**
+3. **Reverse a Number:**
     ```bash
     #!/bin/bash
     read -p "Enter a number: " num
     rev=0
     while [ $num -gt 0 ]; do
-      digit=$((num % 10))
-      rev=$((rev * 10 + digit))
+      rem=$((num % 10))
+      rev=$((rev * 10 + rem))
       num=$((num / 10))
     done
     echo "Reversed number is $rev"
+    ```
+
+4. **List Files:**
+    ```bash
+    #!/bin/bash
+    for file in *; do
+      echo "$file"
+    done
+    ```
+
+5. **Day of the Week:**
+    ```bash
+    #!/bin/bash
+    read -p "Enter a number (1-7): " day
+    case $day in
+      1) echo "Sunday";;
+      2) echo "Monday";;
+      3) echo "Tuesday";;
+      4) echo "Wednesday";;
+      5) echo "Thursday";;
+      6) echo "Friday";;
+      7) echo "Saturday";;
+      *) echo "Invalid input";;
+    esac
+    ```
+
+6. **Menu-Driven Calculator:**
+    ```bash
+    #!/bin/bash
+    echo "1. Addition"
+    echo "2. Subtraction"
+    echo "3. Multiplication"
+    echo "4. Division"
+    read -p "Choose an option: " opt
+    read -p "Enter first number: " num1
+    read -p "Enter second number: " num2
+    case $opt in
+      1) echo "Result: $((num1 + num2))";;
+      2) echo "Result: $((num1 - num2))";;
+      3) echo "Result: $((num1 * num2))";;
+      4) echo "Result: $((num1 / num2))";;
+      *) echo "Invalid option";;
+    esac
     ```
